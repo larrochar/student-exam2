@@ -1,8 +1,5 @@
 pipeline {
-    environment {
-    registry = "larrochar/student-exam2"
-    registryCredential = 'dockerhub'
-    }
+
     agent any
     
     stages {
