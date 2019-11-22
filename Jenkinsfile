@@ -12,18 +12,15 @@ pipeline {
     stage('Building app') {
         steps {
                 sh """
-                    pip3 install -e .
+                    pip3 install --user -e .
                     export FLASK_APP=js_example
-                    pip3 install -e '.[test]'
-                    coverage run -m pytest
-                    coverage report
                 """
         }
     }
     stage('Testing app') {
         steps {
                 sh """
-                    pip3 install -e '.[test]'
+                    pip3 install --user -e '.[test]'
                     coverage run -m pytest
                     coverage report
                 """
