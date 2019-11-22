@@ -7,17 +7,24 @@ pipeline {
       steps {
             git branch: 'master',
             url: 'https://github.com/larrochar/student-exam2.git'
+      }
+        steps{ 
             sh """
-                    python3 -m venv venv
-                    . venv/bin/activate
-                    pip install -e .
+                    pip3 install -e .
                     export FLASK_APP=js_example
-                    pip install -e '.[test]'
+                    pip3 install -e '.[test]'
                     coverage run -m pytest
                     coverage report
-                    deactivate
                 """
+        }
+        steps{ 
+            sh """
+                    pip3 install -e '.[test]'
+                    coverage run -m pytest
+                    coverage report
+                """
+        }
+           
         }
     }
   }
-}
