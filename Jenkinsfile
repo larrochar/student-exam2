@@ -22,7 +22,7 @@ pipeline {
             }
         }
     
-        stage('Building app') {
+        stage('Testing app') {
             steps {
                 sh """
                     . venv/bin/activate
